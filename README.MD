@@ -30,3 +30,10 @@ We should be able to do 4 things :
 - Get the counter for the player
 - Delete the player
 
+
+## Nice to have 
+
+- [] Tests
+- [] Bootstrap the data persistence layer
+- [] Add Auth mech
+- [] Add some concurrency use case to the design
