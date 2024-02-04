@@ -4,31 +4,32 @@ type MockDB struct{}
 
 var mockPlayerCounter = map[string]PlayerCounters{
 	"John": {
-		player:  "John",
-		counter: 0,
+		Player:  "John",
+		Counter: 0,
 	},
 	"Jen": {
-		player:  "Jen",
-		counter: -10,
+		Player:  "Jen",
+		Counter: -10,
 	},
 	"Mike": {
-		player:  "Mike",
-		counter: 5,
+		Player:  "Mike",
+		Counter: 5,
 	},
 	"Ada": {
-		player:  "Ada",
-		counter: 15,
+		Player:  "Ada",
+		Counter: 15,
 	},
 }
 
-func (m MockDB) GetCounterDetails(player string) *PlayerCounters {
-	c, mismatch := mockPlayerCounter[player]
-	if mismatch {
+func (m *MockDB) GetCounterDetails(player string) *PlayerCounters {
+	var c PlayerCounters
+	c, ok := mockPlayerCounter[player]
+	if !ok {
 		return nil
 	}
 	return &c
 }
 
-func (m MockDB) SetUpDatabase() error {
+func (m *MockDB) SetUpDatabase() error {
 	return nil
 }

@@ -1,10 +1,10 @@
 package tools
 
-import "log"
+import log "github.com/sirupsen/logrus"
 
 type PlayerCounters struct {
-	player  string
-	counter int
+	Player  string
+	Counter int
 }
 
 type DatabaseInterface interface {
@@ -12,11 +12,12 @@ type DatabaseInterface interface {
 	SetUpDatabase() error
 }
 
-func NewDatabase(db DatabaseInterface) (*DatabaseInterface, error) {
+func NewDatabase() (*DatabaseInterface, error) {
 
+	var db DatabaseInterface = &MockDB{}
 	var err error = db.SetUpDatabase()
 	if err != nil {
-		log.Fatal(err)
+		log.Error(err)
 		return nil, err
 	}
 

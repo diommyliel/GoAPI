@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
+
+	log "github.com/sirupsen/logrus"
 
 	"github.com/diommyliel/GoAPI/internal/handlers"
 	"github.com/go-chi/chi"
@@ -18,7 +19,7 @@ func main() {
 
 	err := http.ListenAndServe("localhost:5000", r)
 	if err != nil {
-		log.Fatal(err)
+		log.Error(err)
 	}
 
 }
