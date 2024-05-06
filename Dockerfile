@@ -1,6 +1,8 @@
-FROM scratch
+FROM debian
 
-COPY ./build/counter-player ./
+WORKDIR /app
+
+COPY ./build/counter-player .
 
 # Run
-CMD [ "/counter-player" ]
+ENTRYPOINT [ "/app/counter-player" ]
